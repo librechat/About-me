@@ -1,0 +1,90 @@
+:root {
+	--funcionbar-bg-color: #BBBBBB;
+	--personal-bg-color: #CCCCCC;
+	--info-bg-color: #DDDDDD;;
+	--project-bg-color: #EEEEEE;
+	--project-card-color: #FFFFFF;
+}
+.functions{
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: var(--funcionbar-bg-color);
+}
+.personal{
+	padding-top: 80px;
+	padding-bottom: 80px;
+	background-color: var(--personal-bg-color);
+}
+.main-panel{
+	padding-top: 30px;
+	padding-bottom: 30px;	
+}
+.info{
+	background-color: var(--info-bg-color);
+}
+.projects{
+	background-color: var(--project-bg-color);
+}
+.comments{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.func-group{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.drop-lang{
+	height: 25px;
+}
+.btn-circle {	
+    width: 25px;
+    height: 25px;
+    padding: 0px 0px;
+    border-radius: 12.5px;
+    text-align: center;
+    font-size: 8px;
+    line-height: 25px;
+}
+.breadcrumb-holder{
+	margin: 0px;
+}
+.breadcrumb{
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFFFF00;
+}
+.card-header{
+	border-bottom: 0px;
+}
+.card-header-title{
+	margin: 0px;
+}
+.card-slot{
+	padding: 10px;
+}
+.proj-card{
+	border-width: 0px;
+	background-color: var(--project-card-color);
+	border-radius: 10px;
+	overflow: hidden;
+}
+.card-img-top{
+	overflow: hidden;
+	display:flex;
+	align-items: center;
+	justify-content:  center;
+}
+.proj-img-active{
+	height: 200px;
+}
+.proj-img-inactive{
+	display:none;
+}
+.proj-img{
+	width: 100%;
+}
+.card-footer{
+	background-color: inherit;
+	border-width: 0px;
+}

@@ -1,0 +1,85 @@
+doctype html
+html
+	head
+		meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(meta name="viewport" content="width=device-width, initial-scale=1")
+		title Yun-Xuan Lin (librechat)
+		link(href="../include/css/bootstrap.min.css" rel="stylesheet")
+		link(href="../css/custom_styles.css" rel="stylesheet")
+		script(src="../include/js/jquery-3.2.1.min.js")
+		script(src="../include/js/bootstrap.bundle.js")
+		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js")
+		script(src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js")
+		script(src="../controller/bundle.js")
+	body(ng-app="AboutMe" ng-controller="AboutMe")
+		header
+			.functions
+				.container
+					.input-group.func-group
+						a.btn.btn-primary.btn-circle(role="button" target="_blank" ng-href="{{link.github.address}}")
+						a.btn.btn-primary.btn-circle(role="button" target="_blank" ng-href="{{link.linkedin.address}}")
+						a.btn.btn-danger.btn-circle(role="button" target="_blank" ng-href="{{link.email.address}}")
+						.dropdown
+							button.btn.dropdown-toggle(type="button" id="langdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-bind="language.name")
+							.dropdown-menu(aria-labelledby="langdropdown")
+								a.dropdown-item(ng-repeat="lang in languagelist" ng-click="ChangeLanguage(lang.key)") {{lang.name}}
+		main
+			section.text-center.personal
+				.container
+					h1 {{info.name}}
+					p.lead {{info.intro}}
+			.main-panel.info
+				.container
+					.row
+						.card-slot.col-12.col-sm-12.col-md-6
+							.card.proj-card
+								.card-header(id="eduheader")
+									h5.card-header-title {{headers.education}}
+								.card-body(ng-repeat="edu in info.education")
+									small.text-muted.float-right {{edu.date}}
+									h5.card-title {{edu.name}}									
+									h6.card-subtitle.text-muted {{edu.degree}}
+								.card-header(id="expheader")
+									h5.card-header-title {{headers.experience}}
+								.card-body
+									small.text-muted.float-right {{info.experience.date}}
+									h5.card-title {{info.experience.name}}
+									h6.card-subtitle.text-muted {{info.experience.account}}
+						.card-slot.col-12.col-sm-12.col-md-6
+							.card.proj-card
+								.card-body
+									h5.card-title {{headers.programming}}
+									h6.breadcrumb-holder.card-subtitle.text-muted
+										ol.breadcrumb
+											li.breadcrumb-item(ng-repeat="skill in info.programming") {{skill}}
+								.card-body
+									h5.card-title {{headers.tools}}					
+									h6.breadcrumb-holder.card-subtitle.text-muted
+										ol.breadcrumb
+											li.breadcrumb-item(ng-repeat="skill in info.tools") {{skill}}
+								.card-body
+									h5.card-title {{headers.language}}
+									h6.breadcrumb-holder.card-subtitle.text-muted
+										ol.breadcrumb
+											li.breadcrumb-item(ng-repeat="skill in info.language") {{skill}}
+							
+			.main-panel.projects
+				.container
+					.row
+						.card-slot.col-12.col-sm-12.col-md-4(ng-repeat="proj in projects")
+							.card.proj-card
+								.card-img-top(ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'")
+									img.proj-img(src="../src/img/{{proj.media.img}}")
+								.card-body
+									h5.card-title {{proj.name}}
+									h6.card-subtitle.mb-2.text-muted {{proj.account}}
+									p.card-text {{proj.intro}}
+								.card-footer
+									small.text-muted {{proj.date}}
+		footer.text-muted
+			.comments
+				.container
+					p.float-right
+						a(href="#") Back To Top
+					p Website by Yun-Xuan Lin

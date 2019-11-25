@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yun-Xuan Lin (librechat)</title>
+    <link href="../include/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/custom_styles.css" rel="stylesheet">
+    <script src="../include/js/jquery-3.2.1.min.js"></script>
+    <script src="../include/js/bootstrap.bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../controller/bundle.js"></script>
+  </head>
+  <body ng-app="AboutMe" ng-controller="AboutMe">
+    <header>
+      <div class="functions">
+        <div class="container">
+          <div class="input-group func-group"><a role="button" target="_blank" ng-href="{{link.github.address}}" class="btn btn-primary btn-circle"></a><a role="button" target="_blank" ng-href="{{link.linkedin.address}}" class="btn btn-primary btn-circle"></a><a role="button" target="_blank" ng-href="{{link.email.address}}" class="btn btn-danger btn-circle"></a>
+            <div class="dropdown">
+              <button type="button" id="langdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-bind="language.name" class="btn dropdown-toggle"></button>
+              <div aria-labelledby="langdropdown" class="dropdown-menu"><a ng-repeat="lang in languagelist" ng-click="ChangeLanguage(lang.key)" class="dropdown-item">{{lang.name}}</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="text-center personal">
+        <div class="container">
+          <h1>{{info.name}}</h1>
+          <p class="lead">{{info.intro}}</p>
+        </div>
+      </section>
+      <div class="main-panel info">
+        <div class="container">
+          <div class="row">
+            <div class="card-slot col-12 col-sm-12 col-md-6">
+              <div class="card proj-card">
+                <div id="eduheader" class="card-header">
+                  <h5 class="card-header-title">{{headers.education}}</h5>
+                </div>
+                <div ng-repeat="edu in info.education" class="card-body"><small class="text-muted float-right">{{edu.date}}</small>
+                  <h5 class="card-title">{{edu.name}}									</h5>
+                  <h6 class="card-subtitle text-muted">{{edu.degree}}</h6>
+                </div>
+                <div id="expheader" class="card-header">
+                  <h5 class="card-header-title">{{headers.experience}}</h5>
+                </div>
+                <div class="card-body"><small class="text-muted float-right">{{info.experience.date}}</small>
+                  <h5 class="card-title">{{info.experience.name}}</h5>
+                  <h6 class="card-subtitle text-muted">{{info.experience.account}}</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card-slot col-12 col-sm-12 col-md-6">
+              <div class="card proj-card">
+                <div class="card-body">
+                  <h5 class="card-title">{{headers.programming}}</h5>
+                  <h6 class="breadcrumb-holder card-subtitle text-muted">
+                    <ol class="breadcrumb">
+                      <li ng-repeat="skill in info.programming" class="breadcrumb-item">{{skill}}</li>
+                    </ol>
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{headers.tools}}					</h5>
+                  <h6 class="breadcrumb-holder card-subtitle text-muted">
+                    <ol class="breadcrumb">
+                      <li ng-repeat="skill in info.tools" class="breadcrumb-item">{{skill}}</li>
+                    </ol>
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{headers.language}}</h5>
+                  <h6 class="breadcrumb-holder card-subtitle text-muted">
+                    <ol class="breadcrumb">
+                      <li ng-repeat="skill in info.language" class="breadcrumb-item">{{skill}}</li>
+                    </ol>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-panel projects">
+        <div class="container">
+          <div class="row">
+            <div ng-repeat="proj in projects" class="card-slot col-12 col-sm-12 col-md-4">
+              <div class="card proj-card">
+                <div ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'" class="card-img-top"><img src="../src/img/{{proj.media.img}}" class="proj-img"></div>
+                <div class="card-body">
+                  <h5 class="card-title">{{proj.name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{proj.account}}</h6>
+                  <p class="card-text">{{proj.intro}}</p>
+                </div>
+                <div class="card-footer"><small class="text-muted">{{proj.date}}</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="text-muted">
+      <div class="comments">
+        <div class="container">
+          <p class="float-right"><a href="#">Back To Top</a></p>
+          <p>Website by Yun-Xuan Lin</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
