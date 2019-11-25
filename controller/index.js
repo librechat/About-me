@@ -17,6 +17,8 @@ app.controller('AboutMe', ['$scope', function($scope){
 		$scope.language = $scope.languagelist[langkey];
 	}
 
+	$scope.imgpath = './src/img/';
+
 	$scope.link = content.link;
 	$scope.headers = content.GetHeadersByLang($scope.language.key);
 	$scope.info = info.GetInfoByLang($scope.language.key);

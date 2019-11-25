@@ -5,13 +5,13 @@ html
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		meta(meta name="viewport" content="width=device-width, initial-scale=1")
 		title Yun-Xuan Lin (librechat)
-		link(href="../include/css/bootstrap.min.css" rel="stylesheet")
-		link(href="../css/custom_styles.css" rel="stylesheet")
-		script(src="../include/js/jquery-3.2.1.min.js")
-		script(src="../include/js/bootstrap.bundle.js")
+		link(href="./include/css/bootstrap.min.css" rel="stylesheet")
+		link(href="./css/custom_styles.css" rel="stylesheet")
+		script(src="./include/js/jquery-3.2.1.min.js")
+		script(src="./include/js/bootstrap.bundle.js")
 		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js")
 		script(src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js")
-		script(src="../controller/bundle.js")
+		script(src="./controller/bundle.js")
 	body(ng-app="AboutMe" ng-controller="AboutMe")
 		header
 			.functions
@@ -70,7 +70,7 @@ html
 						.card-slot.col-12.col-sm-12.col-md-4(ng-repeat="proj in projects")
 							.card.proj-card
 								.card-img-top(ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'")
-									img.proj-img(src="../src/img/{{proj.media.img}}")
+									img.proj-img(src="{{imgpath}}{{proj.media.img}}")
 								.card-body
 									h5.card-title {{proj.name}}
 									h6.card-subtitle.mb-2.text-muted {{proj.account}}

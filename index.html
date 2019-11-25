@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Yun-Xuan Lin (librechat)</title>
-    <link href="../include/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/custom_styles.css" rel="stylesheet">
-    <script src="../include/js/jquery-3.2.1.min.js"></script>
-    <script src="../include/js/bootstrap.bundle.js"></script>
+    <link href="./include/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/custom_styles.css" rel="stylesheet">
+    <script src="./include/js/jquery-3.2.1.min.js"></script>
+    <script src="./include/js/bootstrap.bundle.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src="../controller/bundle.js"></script>
+    <script src="./controller/bundle.js"></script>
   </head>
   <body ng-app="AboutMe" ng-controller="AboutMe">
     <header>
@@ -90,7 +90,7 @@
           <div class="row">
             <div ng-repeat="proj in projects" class="card-slot col-12 col-sm-12 col-md-4">
               <div class="card proj-card">
-                <div ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'" class="card-img-top"><img src="../src/img/{{proj.media.img}}" class="proj-img"></div>
+                <div ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'" class="card-img-top"><img src="{{imgpath}}{{proj.media.img}}" class="proj-img"></div>
                 <div class="card-body">
                   <h5 class="card-title">{{proj.name}}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">{{proj.account}}</h6>
