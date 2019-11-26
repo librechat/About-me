@@ -13,16 +13,19 @@ const projects = [
 			zhtw: "遊戲程式、遊戲美術",
 		},
 		date: "Jan 2017 - Present",
-		link: "https://partygoosestudio.wixsite.com/gerritorythegame",
+		link: {
+			github: "",
+			website: "https://partygoosestudio.wixsite.com/gerritorythegame"
+		},
 		media: {
 			img: "GerritoryAirRaid.png",
 			gif: "GerritoryAirRaid.gif",
 			video: "https://www.youtube.com/watch?v=wZ_4xxnEhlU"
-		}		
+		}	
 	},
 	{
 		name: {
-			en: "Effects of Peripheral Blur on Cybersickness in Immersive Virtual Environment",
+			en: "Effects of Peripheral Blur on Cybersickness in Immersive Virtual Environments",
 			zhtw: "視野周圍模糊對虛擬實境暈眩的影響",
 		},
 		intro: {
@@ -34,10 +37,13 @@ const projects = [
 			zhtw: "碩士論文",
 		},
 		date: "May 2018 - Nov 2019",
-		link: "aa",
+		link: {
+			github: "https://github.com/librechat/ExperimentProject-PeripheralBlurVR",
+			website: ""
+		},
 		media: {
 			img: "Blur.png",
-			gif: "",
+			gif: "Blur.gif",
 			video: ""
 		}	
 	},
@@ -55,9 +61,13 @@ const projects = [
 			zhtw: "",
 		},
 		date: "Nov 2019",
-		link: "aa",
+		link: {
+			github: "https://github.com/librechat/GameDataConverter",
+			website: ""
+		},
 		media: {
-			img: "",
+			img: "GameDataConverter.png",
+			gif: "GameDataConverter.gif",
 			video: ""
 		}
 	}

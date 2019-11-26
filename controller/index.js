@@ -8,7 +8,7 @@ var app = angular.module('AboutMe', []);
 app.controller('AboutMe', ['$scope', function($scope){
 	
 	$scope.languagelist = content.language;
-	var langkey = Cookies.get('name');
+	var langkey = Cookies.get('language');
 	if(langkey === undefined){
 		$scope.language = $scope.languagelist.en;
 		Cookies.set('language', $scope.languagelist.en.key, { expires: 30 });
@@ -21,6 +21,7 @@ app.controller('AboutMe', ['$scope', function($scope){
 
 	$scope.link = content.link;
 	$scope.headers = content.GetHeadersByLang($scope.language.key);
+	$scope.intro = content.GetIntroByLang($scope.language.key);
 	$scope.info = info.GetInfoByLang($scope.language.key);
 	$scope.projects = proj.GetProjByLang($scope.language.key);
 	
@@ -29,6 +30,7 @@ app.controller('AboutMe', ['$scope', function($scope){
 		$scope.info = info.GetInfoByLang(langkey);
 		$scope.projects = proj.GetProjByLang($scope.language.key);
 		$scope.headers = content.GetHeadersByLang($scope.language.key);
+		$scope.intro = content.GetIntroByLang($scope.language.key);
 
 		Cookies.set('language', langkey, { expires: 30, path: '' });
 	}

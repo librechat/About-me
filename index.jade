@@ -7,39 +7,91 @@ html
 		title Yun-Xuan Lin (librechat)
 		link(href="./include/css/bootstrap.min.css" rel="stylesheet")
 		link(href="./css/custom_styles.css" rel="stylesheet")
+		script(src="https://kit.fontawesome.com/9f4d813057.js" crossorigin="anonymous")
 		script(src="./include/js/jquery-3.2.1.min.js")
 		script(src="./include/js/bootstrap.bundle.js")
 		script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js")
 		script(src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js")
 		script(src="./controller/bundle.js")
+		script(src="./controller/custom_jquery.js")
 	body(ng-app="AboutMe" ng-controller="AboutMe")
+		.loading
 		header
-			.functions
+			nav.navbar.functions.fixed-top
 				.container
-					.input-group.func-group
-						a.btn.btn-primary.btn-circle(role="button" target="_blank" ng-href="{{link.github.address}}")
-						a.btn.btn-primary.btn-circle(role="button" target="_blank" ng-href="{{link.linkedin.address}}")
-						a.btn.btn-danger.btn-circle(role="button" target="_blank" ng-href="{{link.email.address}}")
+					.navbar-brand.mb-0.h5 {{info.name}}
+					.form-inline.mr-auto
+						.input-group
+							a.btn.btn-github.btn-circle(role="button" target="_blank" ng-href="{{link.github}}")
+								i.fab.fa-github-alt
+							a.btn.btn-linkedin.btn-circle(role="button" target="_blank" ng-href="{{link.linkedin}}")
+								i.fab.fa-linkedin-in
+							a.btn.btn-email.btn-circle(role="button" target="_blank" ng-href="{{link.email}}")
+								i.far.fa-envelope
+					.float-right
 						.dropdown
-							button.btn.dropdown-toggle(type="button" id="langdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-bind="language.name")
+							button.btn.dropdown-toggle.btn-sm(type="button" id="langdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-bind="language.name")
 							.dropdown-menu(aria-labelledby="langdropdown")
 								a.dropdown-item(ng-repeat="lang in languagelist" ng-click="ChangeLanguage(lang.key)") {{lang.name}}
 		main
 			section.text-center.personal
 				.container
-					h1 {{info.name}}
-					p.lead {{info.intro}}
-			.main-panel.info
+					.panel-title
+						h1 {{info.name}}
+						p.lead {{info.intro}}
+						p.lead {{intro.recent}}
+							a(target="_blank" ng-href="{{projects[0].link.website}}") {{projects[0].name}}
+					//.directory
+						ul.nav.justify-content-center
+							li.nav-item
+								a.nav-link.h3(href="#Projects") Projects
+							li.nav-item
+								a.nav-link.h3(href="#Background") Background						
+			.main-panel.projects#Project
 				.container
+					.panel-title
+						h2 Projects
+						p.lead {{intro.projects}}
+					.row
+						.card-slot.col-sm-12.col-md-4(ng-repeat="proj in projects")
+							.card.proj-card
+								.card-img-top(ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'")
+									.proj-img-group									
+										img.proj-img#gif(src="{{imgpath}}{{proj.media.gif}}")
+										img.proj-img#img(src="{{imgpath}}{{proj.media.img}}")
+								.card-body.brief
+									h5.card-title {{proj.name}}
+									h6.card-subtitle.mb-2.text-muted {{proj.account}}
+									p.card-text {{proj.intro}}
+								.card-footer
+									.float-right
+										a.btn.btn-circle(role="button" target="_blank" ng-href="{{proj.link.github}}" ng-class="proj.link.github.length === 0? 'hide':'btn-github'")
+											i.fab.fa-github-alt
+										a.btn.btn-circle(role="button" target="_blank" ng-href="{{proj.link.website}}" ng-class="proj.link.website.length === 0? 'hide':'btn-website'")
+											i.fas.fa-link
+										a.btn.btn-circle(role="button" target="_blank" ng-href="{{proj.media.video}}" ng-class="proj.media.video.length === 0? 'hide':'btn-youtube'")
+											i.fab.fa-youtube
+									small.text-muted {{proj.date}}
+								.collapse#detailbody
+									.card-body
+										h5.card-title 
+										h6.card-subtitle.mb-2.text-muted 
+										p.card-text 
+			.main-panel.info#Background
+				.container
+					.panel-title
+						h2 Background
 					.row
 						.card-slot.col-12.col-sm-12.col-md-6
-							.card.proj-card
+							.card.info-card
 								.card-header(id="eduheader")
 									h5.card-header-title {{headers.education}}
 								.card-body(ng-repeat="edu in info.education")
 									small.text-muted.float-right {{edu.date}}
 									h5.card-title {{edu.name}}									
 									h6.card-subtitle.text-muted {{edu.degree}}
+									//small.text-muted.float-right {{edu.account.date}}
+									//p.card-text {{edu.account.name}}
 								.card-header(id="expheader")
 									h5.card-header-title {{headers.experience}}
 								.card-body
@@ -47,7 +99,9 @@ html
 									h5.card-title {{info.experience.name}}
 									h6.card-subtitle.text-muted {{info.experience.account}}
 						.card-slot.col-12.col-sm-12.col-md-6
-							.card.proj-card
+							.card.info-card
+								.card-header
+									h5.card-header-title {{headers.skills}}
 								.card-body
 									h5.card-title {{headers.programming}}
 									h6.breadcrumb-holder.card-subtitle.text-muted
@@ -63,23 +117,13 @@ html
 									h6.breadcrumb-holder.card-subtitle.text-muted
 										ol.breadcrumb
 											li.breadcrumb-item(ng-repeat="skill in info.language") {{skill}}
-							
-			.main-panel.projects
-				.container
-					.row
-						.card-slot.col-12.col-sm-12.col-md-4(ng-repeat="proj in projects")
-							.card.proj-card
-								.card-img-top(ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'")
-									img.proj-img(src="{{imgpath}}{{proj.media.img}}")
-								.card-body
-									h5.card-title {{proj.name}}
-									h6.card-subtitle.mb-2.text-muted {{proj.account}}
-									p.card-text {{proj.intro}}
-								.card-footer
-									small.text-muted {{proj.date}}
 		footer.text-muted
 			.comments
 				.container
 					p.float-right
 						a(href="#") Back To Top
-					p Website by Yun-Xuan Lin
+					p
+						span Website by 
+						a(href="#") Yun-Xuan Lin
+						span  using 
+						a(href="https://getbootstrap.com/") Bootstrap

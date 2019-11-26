@@ -1,16 +1,7 @@
 const link = {
-	github: {
-		address: "https://github.com/librechat",
-		icon: ""
-	},
-	email: {
-		address: "mailto: librechat2514@gmail.com",
-		icon: ""
-	},
-	linkedin: {
-		address: "https://www.linkedin.com/in/yun-xuan-lin-67036518a/",
-		icon: ""
-	}
+	github: "https://github.com/librechat",
+	email: "mailto: librechat2514@gmail.com",
+	linkedin: "https://www.linkedin.com/in/yun-xuan-lin-67036518a/"
 };
 const language = {
 	en: {
@@ -31,8 +22,12 @@ const headers = {
 		en: "Experience",
 		zhtw: "經歷"
 	},
+	skills: {
+		en: "Skills",
+		zhtw: "相關技能"
+	},
 	programming: {
-		en: "Programming Skills",
+		en: "Programming",
 		zhtw: "程式語言"
 	},
 	tools: {
@@ -44,15 +39,34 @@ const headers = {
 		zhtw: "語言"
 	}
 };
-const GetHeadersByLang = function(langkey){
-	var obj = Object.fromEntries(Object.entries(headers).map(function([key, value]){
+const intro = {
+	recent: {
+		en: "Recently working on ",
+		zhtw: "近期參與："
+	},
+	projects: {
+		en: "These are my projects lately.",
+		zhtw: "近期專案"
+	}
+};
+const getFromObjByLang = function(langkey, object){
+	var obj = Object.fromEntries(Object.entries(object).map(function([key, value]){
 		return [key, value[langkey]];
 	}));
 	return obj;
 }
+const GetHeadersByLang = function(langkey){
+	return getFromObjByLang(langkey, headers);
+}
+const GetIntroByLang = function(langkey){
+	return getFromObjByLang(langkey, intro);
+}
+
+
 
 module.exports = {
 	link: link,
 	language: language,
-	GetHeadersByLang: GetHeadersByLang
+	GetHeadersByLang: GetHeadersByLang,
+	GetIntroByLang: GetIntroByLang
 };

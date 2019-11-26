@@ -4,7 +4,7 @@ const name = {
 };
 const intro = {
 	en: "Game Development, Virtual Reality, HCI Research",
-	zhtw: "Game Development, Virtual Reality, HCI Research"
+	zhtw: "遊戲開發、虛擬實境、HCI研究"
 };
 const education = [
 	{
@@ -14,7 +14,12 @@ const education = [
 		},
 		degree: {
 			en: "Master in Computer Science",
-			zhtw: "碩士"
+			zhtw: "碩士 / 多媒體工程研究所"
+		},
+		account: {
+			en: "Teacher Assistant of Comuter Graphics",
+			zhtw: "計算機圖學助教",
+			date: "Sep 2017 - Jan 2018"
 		},
 		date: "Aug 2017 - Oct 2019"
 	},
@@ -24,8 +29,13 @@ const education = [
 			zhtw: "國立交通大學"
 		},
 		degree: {
-			en: "Bachelor of Engineering in Computer Science",
-			zhtw: "學士"
+			en: "B.S in Computer Science",
+			zhtw: "學士 / 資訊工程學系"
+		},
+		account: {
+			en: "Director of NCTU Game Design Club",
+			zhtw: "電腦遊戲設計社 社長",
+			date: "July 2014 - June 2015"
 		},
 		date: "Aug 2013 - July 2017"
 	}
@@ -37,7 +47,7 @@ const experience = {
 	},
 	account: {
 		en: "Intern of Web Development",
-		zhtw: "實習生"
+		zhtw: "實習生 / Web 開發"
 	},
 	date: "Sep 2015 - Sep 2016"
 };
@@ -53,6 +63,10 @@ const GetInfoByLang = function(langkey){
 		return {
 			name: edu.name[langkey],
 			degree: edu.degree[langkey],
+			account: {
+				name: edu.account[langkey],
+				date: edu.account.date
+			},
 			date: edu.date
 		};
 	});

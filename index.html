@@ -7,43 +7,97 @@
     <title>Yun-Xuan Lin (librechat)</title>
     <link href="./include/css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/custom_styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9f4d813057.js" crossorigin="anonymous"></script>
     <script src="./include/js/jquery-3.2.1.min.js"></script>
     <script src="./include/js/bootstrap.bundle.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="./controller/bundle.js"></script>
+    <script src="./controller/custom_jquery.js"></script>
   </head>
   <body ng-app="AboutMe" ng-controller="AboutMe">
+    <div class="loading"></div>
     <header>
-      <div class="functions">
+      <nav class="navbar functions fixed-top">
         <div class="container">
-          <div class="input-group func-group"><a role="button" target="_blank" ng-href="{{link.github.address}}" class="btn btn-primary btn-circle"></a><a role="button" target="_blank" ng-href="{{link.linkedin.address}}" class="btn btn-primary btn-circle"></a><a role="button" target="_blank" ng-href="{{link.email.address}}" class="btn btn-danger btn-circle"></a>
+          <div class="navbar-brand mb-0 h5">{{info.name}}</div>
+          <div class="form-inline mr-auto">
+            <div class="input-group"><a role="button" target="_blank" ng-href="{{link.github}}" class="btn btn-github btn-circle"><i class="fab fa-github-alt"></i></a><a role="button" target="_blank" ng-href="{{link.linkedin}}" class="btn btn-linkedin btn-circle"><i class="fab fa-linkedin-in"></i></a><a role="button" target="_blank" ng-href="{{link.email}}" class="btn btn-email btn-circle"><i class="far fa-envelope"></i></a></div>
+          </div>
+          <div class="float-right">
             <div class="dropdown">
-              <button type="button" id="langdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-bind="language.name" class="btn dropdown-toggle"></button>
+              <button type="button" id="langdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-bind="language.name" class="btn dropdown-toggle btn-sm"></button>
               <div aria-labelledby="langdropdown" class="dropdown-menu"><a ng-repeat="lang in languagelist" ng-click="ChangeLanguage(lang.key)" class="dropdown-item">{{lang.name}}</a></div>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
     <main>
       <section class="text-center personal">
         <div class="container">
-          <h1>{{info.name}}</h1>
-          <p class="lead">{{info.intro}}</p>
+          <div class="panel-title">
+            <h1>{{info.name}}</h1>
+            <p class="lead">{{info.intro}}</p>
+            <p class="lead">{{intro.recent}}<a target="_blank" ng-href="{{projects[0].link.website}}">{{projects[0].name}}</a></p>
+          </div>
+          <!--.directory
+          ul.nav.justify-content-center
+          	li.nav-item
+          		a.nav-link.h3(href="#Projects") Projects
+          	li.nav-item
+          		a.nav-link.h3(href="#Background") Background						
+          -->
         </div>
       </section>
-      <div class="main-panel info">
+      <div id="Project" class="main-panel projects">
         <div class="container">
+          <div class="panel-title">
+            <h2>Projects</h2>
+            <p class="lead">{{intro.projects}}</p>
+          </div>
+          <div class="row">
+            <div ng-repeat="proj in projects" class="card-slot col-sm-12 col-md-4">
+              <div class="card proj-card">
+                <div ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'" class="card-img-top">
+                  <div class="proj-img-group">									<img id="gif" src="{{imgpath}}{{proj.media.gif}}" class="proj-img"><img id="img" src="{{imgpath}}{{proj.media.img}}" class="proj-img"></div>
+                </div>
+                <div class="card-body brief">
+                  <h5 class="card-title">{{proj.name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{proj.account}}</h6>
+                  <p class="card-text">{{proj.intro}}</p>
+                </div>
+                <div class="card-footer">
+                  <div class="float-right"><a role="button" target="_blank" ng-href="{{proj.link.github}}" ng-class="proj.link.github.length === 0? 'hide':'btn-github'" class="btn btn-circle"><i class="fab fa-github-alt"></i></a><a role="button" target="_blank" ng-href="{{proj.link.website}}" ng-class="proj.link.website.length === 0? 'hide':'btn-website'" class="btn btn-circle"><i class="fas fa-link"></i></a><a role="button" target="_blank" ng-href="{{proj.media.video}}" ng-class="proj.media.video.length === 0? 'hide':'btn-youtube'" class="btn btn-circle"><i class="fab fa-youtube"></i></a></div><small class="text-muted">{{proj.date}}</small>
+                </div>
+                <div id="detailbody" class="collapse">
+                  <div class="card-body">
+                    <h5 class="card-title"> </h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> </h6>
+                    <p class="card-text"> </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="Background" class="main-panel info">
+        <div class="container">
+          <div class="panel-title">
+            <h2>Background</h2>
+          </div>
           <div class="row">
             <div class="card-slot col-12 col-sm-12 col-md-6">
-              <div class="card proj-card">
+              <div class="card info-card">
                 <div id="eduheader" class="card-header">
                   <h5 class="card-header-title">{{headers.education}}</h5>
                 </div>
                 <div ng-repeat="edu in info.education" class="card-body"><small class="text-muted float-right">{{edu.date}}</small>
                   <h5 class="card-title">{{edu.name}}									</h5>
                   <h6 class="card-subtitle text-muted">{{edu.degree}}</h6>
+                  <!--small.text-muted.float-right {{edu.account.date}}-->
+                  <!--p.card-text {{edu.account.name}}-->
                 </div>
                 <div id="expheader" class="card-header">
                   <h5 class="card-header-title">{{headers.experience}}</h5>
@@ -55,7 +109,10 @@
               </div>
             </div>
             <div class="card-slot col-12 col-sm-12 col-md-6">
-              <div class="card proj-card">
+              <div class="card info-card">
+                <div class="card-header">
+                  <h5 class="card-header-title">{{headers.skills}}</h5>
+                </div>
                 <div class="card-body">
                   <h5 class="card-title">{{headers.programming}}</h5>
                   <h6 class="breadcrumb-holder card-subtitle text-muted">
@@ -85,29 +142,12 @@
           </div>
         </div>
       </div>
-      <div class="main-panel projects">
-        <div class="container">
-          <div class="row">
-            <div ng-repeat="proj in projects" class="card-slot col-12 col-sm-12 col-md-4">
-              <div class="card proj-card">
-                <div ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'" class="card-img-top"><img src="{{imgpath}}{{proj.media.img}}" class="proj-img"></div>
-                <div class="card-body">
-                  <h5 class="card-title">{{proj.name}}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">{{proj.account}}</h6>
-                  <p class="card-text">{{proj.intro}}</p>
-                </div>
-                <div class="card-footer"><small class="text-muted">{{proj.date}}</small></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </main>
     <footer class="text-muted">
       <div class="comments">
         <div class="container">
           <p class="float-right"><a href="#">Back To Top</a></p>
-          <p>Website by Yun-Xuan Lin</p>
+          <p><span>Website by </span><a href="#">Yun-Xuan Lin</a><span> using </span><a href="https://getbootstrap.com/">Bootstrap</a></p>
         </div>
       </div>
     </footer>
