@@ -13,12 +13,12 @@ const education = [
 			zhtw: "國立交通大學"
 		},
 		degree: {
-			en: "Master in Computer Science",
+			en: "M.S in Multimedia Engineering",
 			zhtw: "碩士 / 多媒體工程研究所"
 		},
 		account: {
-			en: "Teacher Assistant of Comuter Graphics",
-			zhtw: "計算機圖學助教",
+			en: "Graphics and Perception Lab (GPL Lab)",
+			zhtw: "圖學與感知實驗室 (GPL Lab)",
 			date: "Sep 2017 - Jan 2018"
 		},
 		date: "Aug 2017 - Oct 2019"

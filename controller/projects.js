@@ -5,7 +5,7 @@ const projects = [
 			zhtw: "Gerritory 給地偷地",
 		},
 		intro: {
-			en: "Gerritory is an indie multi-player party game I made with three of my friends using Unity3D.",
+			en: "Gerritory is an indie multiplayer party game I made with three of my friends using Unity3D.",
 			zhtw: "給地偷地是我和我的三位朋友共同製作的一款多人派對遊戲。",
 		},
 		account: {
@@ -29,7 +29,7 @@ const projects = [
 			zhtw: "視野周圍模糊對虛擬實境暈眩的影響",
 		},
 		intro: {
-			en: "Investigate cybersickness reduction with different style of peripheral blur of the image.",
+			en: "Investigate cybersickness reduction with different styles of peripheral blur of the image.",
 			zhtw: "研究視野周圍模糊的大小與位置是否會影響減輕 VR 暈眩的效果。",
 		},
 		account: {
@@ -53,7 +53,7 @@ const projects = [
 			zhtw: "遊戲資料轉換工具",
 		},
 		intro: {
-			en: "An Unity3D editor tool converts game datas between ScriptableObject, Excel, and Json. Easy to orgnanize game data in different data editors.",
+			en: "An Unity3D editor tool converts game data between ScriptableObject, Excel, and JSON. Easy to organize game data in different data editors.",
 			zhtw: "將 ScriptableObject 格式的遊戲資料和 Excel 與 Json 格式互相轉換的 Unity3D 編輯器工具。",
 		},
 		account: {
