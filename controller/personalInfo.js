@@ -35,9 +35,9 @@ const education = [
 		account: {
 			en: "Director of NCTU Game Design Club",
 			zhtw: "電腦遊戲設計社 社長",
-			date: "July 2014 - June 2015"
+			date: "Jul 2014 - Jun 2015"
 		},
-		date: "Aug 2013 - July 2017"
+		date: "Aug 2013 - Jul 2017"
 	}
 ];
 const experience = {

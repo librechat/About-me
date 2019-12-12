@@ -57,7 +57,7 @@
             <p class="lead">{{intro.projects}}</p>
           </div>
           <div class="row">
-            <div ng-repeat="proj in projects" class="card-slot col-sm-12 col-md-4">
+            <div ng-repeat="proj in projects" class="card-slot col-sm-12 col-md-6">
               <div class="card proj-card">
                 <div ng-class="proj.media.img.length === 0? 'proj-img-inactive': 'proj-img-active'" class="card-img-top">
                   <div class="proj-img-group">									<img id="gif" src="{{imgpath}}{{proj.media.gif}}" class="proj-img"><img id="img" src="{{imgpath}}{{proj.media.img}}" class="proj-img"></div>

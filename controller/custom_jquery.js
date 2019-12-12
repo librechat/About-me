@@ -1,9 +1,4 @@
-window.onload = function(){
-	$('.loading').fadeOut(600, function(){
-		//$('#top').addClass('fixed-top');
-	});
-};
-$(document).ready(function(){
+var onready = function(){
 	$('.proj-card').mouseenter(function(){
 		var gif = $(this).find('.card-img-top > .proj-img-group > #gif');
 		var img = $(this).find('.card-img-top > .proj-img-group > #img');
@@ -27,6 +22,13 @@ $(document).ready(function(){
 	/*$('.proj-card').click(function(){
 		$(this).find('#detailbody').collapse('toggle');
 	});*/
-});
+}
+
+window.onload = function(){
+	$('.loading').fadeOut(600, function(){
+		//$('#top').addClass('fixed-top');
+	});
+};
+$(document).ready(onready);
 
 

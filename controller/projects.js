@@ -5,8 +5,8 @@ const projects = [
 			zhtw: "Gerritory 給地偷地",
 		},
 		intro: {
-			en: "Gerritory is an indie multiplayer party game I made with three of my friends using Unity3D.",
-			zhtw: "給地偷地是我和我的三位朋友共同製作的一款多人派對遊戲。",
+			en: "Gerritory is an indie multiplayer party game I made with three of my friends using Unity3D, which has won Best Design Price in Taipei Game Show IGA 2019. We plan to release it in 2020.",
+			zhtw: "給地偷地是我和我的三位朋友共同製作的一款多人派對遊戲，曾於 2019 台北電玩展獲得最佳遊戲設計獎。預計於 2020 釋出。",
 		},
 		account: {
 			en: "Game Programmer, Game Art Designer",
@@ -68,6 +68,30 @@ const projects = [
 		media: {
 			img: "GameDataConverter.png",
 			gif: "GameDataConverter.gif",
+			video: ""
+		}
+	},
+	{
+		name: {
+			en: "A3! Calculator",
+			zhtw: "A3! 組隊計算機",
+		},
+		intro: {
+			en: "A front-end team-up system of mobile card game A3! (Traditional Chinese), which forms a player’s cards into a team with maximum batle value automatically. Implemented with Vue.js and AngularJS.",
+			zhtw: "前端練習：手機遊戲 A3! 的卡牌自動組隊推薦工具，使用 Vue.js 和 AngularJS。",
+		},
+		account: {
+			en: "",
+			zhtw: "",
+		},
+		date: "Sep 2018 - Present",
+		link: {
+			github: "https://github.com/librechat/a3-calculator",
+			website: "https://librechat.github.io/a3-calculator/view/index.html"
+		},
+		media: {
+			img: "A3.png",
+			gif: "A3.gif",
 			video: ""
 		}
 	}
