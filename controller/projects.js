@@ -94,6 +94,30 @@ const projects = [
 			gif: "A3.gif",
 			video: ""
 		}
+	},
+	{
+		name: {
+			en: "Magic Monopoly (WIP)",
+			zhtw: "Magic Monopoly (製作中)",
+		},
+		intro: {
+			en: "A monopoly-like game. Players can build magic circles on their territory to attack the other players who stepped on the circle. Players should kill each other to win.",
+			zhtw: "類大富翁機制的遊戲。玩家可在領地建設魔法陣，踩到魔法陣的玩家會損失血量，遊戲目標是盡可能殺死其他玩家。",
+		},
+		account: {
+			en: "",
+			zhtw: "",
+		},
+		date: "Nov 2019",
+		link: {
+			github: "https://github.com/librechat/MagicMonopoly",
+			website: ""
+		},
+		media: {
+			img: "MagicMonopoly.png",
+			gif: "MagicMonopoly.gif",
+			video: ""
+		}
 	}
 ];
 const GetProjByLang = function(langkey){
